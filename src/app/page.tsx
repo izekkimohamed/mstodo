@@ -9,7 +9,7 @@ import Profile from '@/components/Profile'
 
 export default function Home() {
   const [leftMenu, setLeftMenu] = useState(false)
-  const [rightMenu, setRightMenu] = useState(false)
+  const [rightMenu, setRightMenu] = useState(true)
 
   const toggleLeftMenu = () => {
     setLeftMenu(!leftMenu)
@@ -19,11 +19,11 @@ export default function Home() {
     setRightMenu(!rightMenu)
   }
   return (
-    <div className="w-full  h-screen bg-[#222] text-gray-300">
+    <div className="w-full  flex flex-col h-screen bg-[#222] text-gray-300">
       <nav className="relative flex items-center justify-center w-full h-10 ">
         <Navbar />
       </nav>
-      <main className="relative flex w-full h-full ">
+      <main className="relative flex grow ">
         {/* {leftMenu && ( */}
         <div
           onClick={() => {

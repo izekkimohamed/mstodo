@@ -9,18 +9,19 @@ const ProfileDetails = ({
   setIsOpen: React.Dispatch<React.SetStateAction<boolean>>
 }) => {
   return (
-    <div className="relative w-full mb-5">
+    <div className="relative mb-5">
       <button
         className="relative flex items-center justify-start gap-3 text-xs font-bold rounded-full"
         onClick={() => setIsOpen((prev) => !prev)}
       >
-        <Image
-          className="rounded-full ring-1 md:ring-2 ring-gray-300"
-          src={'https://i.pravatar.cc/300'}
-          alt="Avatar"
-          width={40}
-          height={40}
-        />
+        <div className="relative w-10 h-10">
+          <Image
+            className="rounded-full ring-1 md:ring-2 ring-gray-300"
+            src={'https://i.pravatar.cc/300'}
+            alt="Avatar"
+            fill
+          />
+        </div>
         <div className="flex flex-col items-start">
           <p className="text-gray-200 ">Izekki Mohamed</p>
           <div className="flex font-normal text-gray-300">

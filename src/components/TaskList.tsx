@@ -23,10 +23,13 @@ function TaskList({ id, Icon, color, title, numberOfTasks, active, setActive }: 
   return (
     <div
       className={`${
-        active === id ? 'bg-gray-700' : 'bg-transparent'
-      } flex items-center gap-3 p-2 rounded-lg cursor-pointer hover:bg-gray-700 `}
+        active === id ? 'bg-[#333] ' : 'bg-transparent'
+      } flex relative items-center gap-3 p-2 rounded-lg cursor-pointer hover:bg-[#333]`}
       onClick={() => handleClick(id)}
     >
+      {active === id && (
+        <div className="absolute w-1 h-4 transition-all ease-in-out  rounded bg-blue-500 top-1/2 -translate-y-1/2 left-0" />
+      )}
       <Icon className={color} />
       <p className="text-sm">{title}</p>
       {numberOfTasks && (

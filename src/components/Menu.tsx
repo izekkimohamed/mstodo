@@ -26,17 +26,19 @@ const Menu = ({ showMenu, toggleMenu, menuContent, type }: MenuProps) => {
     <div
       className={`${menuClasses} ${
         showMenu ? 'absolute  md:relative md:block' : 'hidden'
-      }  md:block relative  flex h-full w-full md:w-[20%] `}
+      }  md:block relative  flex h-full w-full md:w-[30%] lg:w-[20%] `}
     >
       <div
-        className={`bg-[#222]  w-[60%] h-full md:w-full   ${type === 'Right' ? 'order-2' : ''} `}
+        className={`bg-[#222] flex grow w-[60%] h-full md:w-full   ${
+          type === 'Right' ? 'order-2' : ''
+        } `}
       >
         {type === 'Right' && (
           <button className="flex w-5 ml-auto" onClick={toggleMenu}>
             <FaTimes />
           </button>
         )}
-        <div className="relative h-full">{menuContent}</div>
+        <div className="relative grow max-w-full">{menuContent}</div>
       </div>
       <div className={`md:hidden bg-black/50 z-20  w-[40%] md:w-0`} onClick={toggleMenu}></div>
     </div>

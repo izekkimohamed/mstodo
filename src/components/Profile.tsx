@@ -17,7 +17,7 @@ function Profile({ leftMenu }: { leftMenu: boolean }) {
 
   return (
     <div className="flex flex-col w-full h-full gap-3">
-      <div className="p-2 ">
+      <div className="max-w-full px-2">
         <ProfileDetails isOpen={isOpen} setIsOpen={setIsOpen} />
         <Input />
       </div>
@@ -26,11 +26,11 @@ function Profile({ leftMenu }: { leftMenu: boolean }) {
         <TasksGroup />
       </div>
       <div className="flex items-center h-10 text-base ">
-        <button className="flex items-center h-full gap-2 px-2 rounded-sm grow hover:bg-gray-600">
+        <button className="flex items-center h-full gap-2 px-2 rounded-sm grow hover:bg-[#333]">
           <FaPlus />
           <span className="font-bold">Add Task</span>
         </button>
-        <button className="flex items-center h-full gap-2 px-2 rounded-sm hover:bg-gray-600">
+        <button className="flex items-center h-full gap-2 px-2 rounded-sm hover:bg-[#333]">
           <MdPostAdd className="p-0 text-2xl" />
         </button>
       </div>
