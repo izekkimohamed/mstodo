@@ -12,10 +12,16 @@ export default function Home() {
   const [rightMenu, setRightMenu] = useState(true)
 
   const toggleLeftMenu = () => {
+    if (rightMenu) {
+      setRightMenu(false)
+    }
     setLeftMenu(!leftMenu)
   }
 
   const toggleRightMenu = () => {
+    if (leftMenu) {
+      setLeftMenu(false)
+    }
     setRightMenu(!rightMenu)
   }
   return (
