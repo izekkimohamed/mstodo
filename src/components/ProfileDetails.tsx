@@ -20,6 +20,7 @@ const ProfileDetails = ({
             src={'https://i.pravatar.cc/300'}
             alt="Avatar"
             fill
+            sizes="cover"
           />
         </div>
         <div className="flex flex-col items-start">
