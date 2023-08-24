@@ -1,19 +1,18 @@
-import * as trpc from '@trpc/server'
-import * as trpcNext from '@trpc/server/adapters/fetch'
+import type { inferAsyncReturnType } from '@trpc/server'
+import type { CreateNextContextOptions } from '@trpc/server/adapters/next'
 // import { unstable_getServerSession } from "next-auth";
 import { prisma } from './prisma'
-// import { nextAuthOptions } from "../common/auth";
 
-export const createContext = async (ctx: trpcNext.FetchCreateContextFnOptions) => {
-  const { req, resHeaders } = ctx
-  //   const session = await unstable_getServerSession(req, res, nextAuthOptions);
+type CreateContextOptions = Record<string, never>
 
+const createInnerTRPCContext = (_opts: CreateContextOptions) => {
   return {
-    req,
-    resHeaders,
-    // session
     prisma
   }
 }
 
-export type IContext = trpc.inferAsyncReturnType<typeof createContext>
+export const createContext = (_opts: CreateNextContextOptions) => {
+  return createInnerTRPCContext({})
+}
+
+export type Context = inferAsyncReturnType<typeof createContext>
