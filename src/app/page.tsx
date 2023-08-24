@@ -1,15 +1,22 @@
 'use client'
 
 import { useState } from 'react'
-import MiddelPart from '@/components/MiddelPart'
-import Menu from '@/components/Menu'
+import MiddelPart from '@/app/_components/MiddelPart'
+import Menu from '@/app/_components/Menu'
 import { FaBars } from 'react-icons/fa'
-import Navbar from '@/components/Navbar'
-import Profile from '@/components/Profile'
+import Navbar from '@/app/_components/Navbar'
+import Profile from '@/app/_components/Profile'
+import { trpc } from './_trpc/client'
+import { serverClient } from './_trpc/serverClient'
 
 export default function Home() {
   const [leftMenu, setLeftMenu] = useState(false)
   const [rightMenu, setRightMenu] = useState(true)
+  const createUser = trpc.userCreate.useMutation({
+    onSuccess: () => {
+      console.log('user created')
+    }
+  })
 
   const toggleLeftMenu = () => {
     if (rightMenu) {
@@ -28,6 +35,16 @@ export default function Home() {
     <div className="w-full  flex flex-col h-screen bg-[#222] text-gray-300">
       <nav className="relative flex items-center justify-center w-full h-10 ">
         <Navbar />
+        <button
+          onClick={() => {
+            createUser.mutate({
+              name: 'test'
+            })
+          }}
+        >
+          {' '}
+          Add User{' '}
+        </button>
       </nav>
       <main className="relative flex grow ">
         {/* {leftMenu && ( */}
