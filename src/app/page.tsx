@@ -31,6 +31,19 @@ export default function Home() {
     }
     setRightMenu(!rightMenu)
   }
+  async function sendData() {
+    try {
+      await fetch('/api', {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      })
+    } catch (error) {
+      console.log(error)
+    }
+  }
+  sendData()
   return (
     <div className="w-full  flex flex-col h-screen bg-[#222] text-gray-300">
       <nav className="relative flex items-center justify-center w-full h-10 ">
